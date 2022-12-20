@@ -1,0 +1,16 @@
+set(CTEST_CUSTOM_COVERAGE_EXCLUDE
+  ${CTEST_CUSTOM_COVERAGE_EXCLUDE}
+  "/molequeue/testing/"
+  "/moc_"
+  "/ui_"
+  "/thirdparty/"
+)
+
+set(CTEST_CUSTOM_WARNING_EXCEPTION
+  ${CTEST_CUSTOM_WARNING_EXCEPTION}
+  # We don't care about warnings from third party libraries:
+  ".*thirdparty.*"
+  # Nested Qt foreach loops produce this warning:
+  "_container_.* shadows a previous local"
+  "shadowed declaration is here"
+)

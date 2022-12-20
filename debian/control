@@ -1,0 +1,52 @@
+Source: molequeue
+Maintainer: Debichem Team <debichem-devel@lists.alioth.debian.org>
+Uploaders: Drew Parsons <dparsons@debian.org>,
+           Michael Banck <mbanck@debian.org>
+Section: science
+Priority: optional
+Build-Depends: cmake,
+               debhelper-compat (= 13),
+               qttools5-dev
+Standards-Version: 4.5.1
+Vcs-Browser: https://salsa.debian.org/debichem-team/molequeue
+Vcs-Git: https://salsa.debian.org/debichem-team/molequeue.git
+Homepage: https://www.openchemistry.org/projects/molequeue/
+
+Package: molequeue
+Architecture: any
+Section: science
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: Desktop integration of high performance computing resources
+ MoleQueue is a desktop application for abstracting, managing, and coordinating
+ the execution of tasks both locally and on remote computational resources.
+ Users can set up local and remote queues that describe where the task will be
+ executed. Each queue can have programs, with templates to facilitate the
+ execution of the program. Input files can be staged, and output files
+ collected using a standard interface. Some highlights:
+ .
+  * Intuitive interface designed to be useful to whole community
+  * Support for local executation and remote schedulers (SGE, PBS, SLURM)
+  * System tray resident application managing queue of queues and job lifetime
+  * Simple, lightweight JSON-RPC 2.0 based communication over local sockets
+
+Package: libmolequeue-dev
+Architecture: any
+Section: libdevel
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: Desktop integration of high performance computing resources (development files)
+ MoleQueue is a desktop application for abstracting, managing, and coordinating
+ the execution of tasks both locally and on remote computational resources.
+ Users can set up local and remote queues that describe where the task will be
+ executed. Each queue can have programs, with templates to facilitate the
+ execution of the program. Input files can be staged, and output files
+ collected using a standard interface. Some highlights:
+ .
+  * Intuitive interface designed to be useful to whole community
+  * Support for local executation and remote schedulers (SGE, PBS, SLURM)
+  * System tray resident application managing queue of queues and job lifetime
+  * Simple, lightweight JSON-RPC 2.0 based communication over local sockets
+  * Qt 5 client library for simple integration in Qt applications
+ .
+ This package contains the static library and the header files.

@@ -1,0 +1,2 @@
+debian/tmp/usr/bin/molequeue
+debian/tmp/usr/lib/*/molequeue/plugins/*.so

@@ -1,0 +1,11 @@
+molequeue (0.9.0-deepin1) unstable; urgency=medium
+
+  * Rebuild
+
+ -- Deepin Packages Builder <packages@deepin.org>  Mon, 14 Nov 2022 17:47:53 +0800
+
+molequeue (0.9.0-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Michael Banck <mbanck@debian.org>  Sun, 23 May 2021 16:52:02 +0200

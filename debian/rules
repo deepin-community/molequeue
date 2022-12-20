@@ -1,0 +1,38 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=1
+
+include /usr/share/dpkg/architecture.mk
+
+export CPPFLAGS := $(shell dpkg-buildflags --get CPPFLAGS) -fPIC
+export CFLAGS   := $(CPPFLAGS) $(shell dpkg-buildflags --get CFLAGS)
+export CXXFLAGS := $(CPPFLAGS) $(shell dpkg-buildflags --get CXXFLAGS)
+export LDFLAGS  := -fPIC $(shell dpkg-buildflags --get LDFLAGS) -Wl,-z,defs -Wl,--as-needed
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+CMAKE_OPTS=-DBUILD_SHARED_LIBS=OFF \
+           -DCMAKE_SKIP_RPATH=ON
+
+%:
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure-arch:
+	dh_auto_configure -- $(CMAKE_OPTS)
+
+#override_dh_auto_configure-indep:
+#	dh_auto_configure -- -DBUILD_DOCUMENTATION=ON $(CMAKE_OPTS)
+#
+#override_dh_auto_build-indep:
+#	cd obj-$(DEB_HOST_GNU_TYPE); make documentation
+#
+#override_dh_auto_install-arch:
+#	dh_auto_install -a
+#	cp -r obj-$(DEB_HOST_GNU_TYPE)/bin debian/tmp/usr
+#
+#override_dh_auto_install-indep:
+#	if [ ! -d debian/tmp ]; then mkdir -p debian/tmp; fi
+#	cp -r obj-$(DEB_HOST_GNU_TYPE)/docs/html debian/tmp
+
+override_dh_missing:
+	dh_missing --list-missing
